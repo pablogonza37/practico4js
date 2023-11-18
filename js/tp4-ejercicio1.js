@@ -10,18 +10,18 @@ const Auto = {
     encender: function() {
       if (!this.encendido) {
         this.encendido = true;
-        console.log('Auto encendido');
+        document.write('<p>Auto encendido</p>');
       } else {
-        console.log('El auto está encendido');
+        document.write('<p>El auto está encendido</p>');
       }
     },
   
     apagar: function() {
       if (this.encendido) {
         this.encendido = false;
-        console.log('El auto se apagó');
+        document.write('<p>El auto se apagó</p>');
       } else {
-        console.log('El auto está apagado');
+        document.write('<p>El auto está apagado</p>');
       }
     }
   };
