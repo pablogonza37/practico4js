@@ -1,8 +1,8 @@
 class Persona {
     constructor(nombre, edad, profesion) {
-      this.nombre = nombre;
-      this.edad = edad;
-      this.profesion = profesion;
+      this._nombre = nombre;
+      this._edad = edad;
+      this._profesion = profesion;
     }
 
     get nombre() {
