@@ -1,37 +1,59 @@
 class Rectangulo {
   constructor(alto, ancho) {
-    this.alto = alto;
-    this.ancho = ancho;
+      this._alto = alto;
+      this._ancho = ancho;
+  }
+
+  get alto() {
+      return this._alto;
+  }
+
+  set alto(nuevoAlto) {
+      if (nuevoAlto > 0) {
+          this._alto = nuevoAlto;
+      } else {
+          document.write("El alto debe ser un número positivo.");
+      }
+  }
+
+  get ancho() {
+      return this._ancho;
+  }
+
+  set ancho(nuevoAncho) {
+      if (nuevoAncho > 0) {
+          this._ancho = nuevoAncho;
+      } else {
+          document.write("El ancho debe ser un número positivo.");
+      }
   }
 
   mostrarPropiedades() {
     document.write(`<h2>Propiedades del rectangulo:</h2>`);
-    document.write(`<p>Alto: ${this.alto}</p>`);
-    document.write(`<p>Ancho: ${this.ancho}</p>`);
-   
+    document.write(`<p>Alto: ${this._alto}</p>`);
+    document.write(`<p>Ancho: ${this._ancho}</p>`);
   }
 
-  modificarPropiedades(nuevoAlto, nuevoAncho) {
-    this.alto = nuevoAlto;
-    this.ancho = nuevoAncho;
+  calcularPerimetro() {
+      return 2 * (this._alto + this._ancho);
   }
 
-  perimetro() {
-    return 2 * (this.alto + this.ancho);
-  }
-
-  area() {
-    return this.alto * this.ancho;
+  calcularArea() {
+      return this._alto * this._ancho;
   }
 }
 
-const rectangulo1 = new Rectangulo(9, 10);
+const miRectangulo = new Rectangulo(6, 10);
+miRectangulo.mostrarPropiedades();
 
-rectangulo1.mostrarPropiedades();
-document.write(`<p>Perímetro: ${rectangulo1.perimetro()}</p>`);
-document.write(`<p>Área: ${rectangulo1.area()}</p>`);
+miRectangulo.alto = 5;
+miRectangulo.ancho = 15;
 
-rectangulo1.modificarPropiedades(6, 12);
-rectangulo1.mostrarPropiedades();
-document.write(`<p>Perímetro: ${rectangulo1.perimetro()}</p>`);
-document.write(`<p>Área: ${rectangulo1.area()}</p>`);
+miRectangulo.mostrarPropiedades();
+
+const perimetro = miRectangulo.calcularPerimetro();
+const area = miRectangulo.calcularArea();
+
+document.write(`<h2>Calulo de Perímetro y Área</h2>`);
+document.write(`<p>Perímetro: ${perimetro}</p>`);
+document.write(`<p>Área: ${area}</p>`);
